@@ -36,3 +36,15 @@ for file in *.pdf; do
 done
 
 echo "All PDF files processed and renamed."
+
+
+
+# TODO 
+    # isbn
+    # determine publisher
+    # chatgpt api
+    # issn api (crossref)
+        # overwrite existing metadata with issn metadata
+
+# TODO 
+    # 
