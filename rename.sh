@@ -6,7 +6,8 @@ if ! command -v exiftool &> /dev/null; then
     exit 1
 fi
 
-dir=$(pwd)
+dir="$(pwd)/articles"
+cd $dir
 
 uploader_name='Vasquez'
 quarter=2
@@ -14,8 +15,8 @@ quarter=2
 for file in *.pdf; do
 
     # Extract metadata
-    $(rm tmp.txt)
-    $(exiftool -d "%Y" -CreateDate -UTC -Title -Creator "$file" > tmp.txt)
+    rm tmp.txt
+    exiftool -d "%Y" -CreateDate -UTC -Title -Creator "$file" > tmp.txt
 
     # Read metadata
     author=$(grep "Creator                         :" tmp.txt | awk -F ': ' '{print $2}' | cut -d ',' -f 1 | awk '{print $NF}')
